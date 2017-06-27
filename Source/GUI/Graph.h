@@ -6,7 +6,9 @@
 
 #ifndef GRAPH_GUARD
 #define GRAPH_GUARD 1
+#ifndef __unix__
 #define WIN32
+#endif
 #include <FL/fl_draw.H>
 #include <FL/Fl_Image.H>
 #include "Point.h"

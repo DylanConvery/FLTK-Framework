@@ -39,10 +39,10 @@ bool Simple_window::wait_for_button()
 
 //------------------------------------------------------------------------------
 
-void Simple_window::cb_next(Address, Address pw)
+void Simple_window::cb_next(Graph_lib::Address, Graph_lib::Address pw)
 // call Simple_window::next() for the window located at pw
 {  
-    reference_to<Simple_window>(pw).next();    
+    Graph_lib::reference_to<Simple_window>(pw).next();    
 }
 
 //------------------------------------------------------------------------------

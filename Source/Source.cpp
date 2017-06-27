@@ -1,6 +1,6 @@
 #include <iostream>
-#include "GUI\Graph.h"
-#include "GUI\Window.h"
+#include "GUI/Graph.h"
+#include "GUI/Window.h"
 
 int main() {
 	using namespace Graph_lib;
