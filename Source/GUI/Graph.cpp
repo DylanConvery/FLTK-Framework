@@ -434,13 +434,15 @@ void Arrow::draw_lines() const
 	//	<< "pr_x = " << pr_x << '\n'
 	//	<< "pr_y = " << pr_y << '\n';
 
-	// draw arrowhead - is always filled in line color
+	// draw arrowhead
 	if (color().visibility()) {
+		fl_color(fill_color().as_int());
 		fl_begin_complex_polygon();
 		fl_vertex(point(1).x,point(1).y);
 		fl_vertex(pl_x,pl_y);
 		fl_vertex(pr_x,pr_y);
 		fl_end_complex_polygon();
+		fl_color(color().as_int());
 	}
 }
 

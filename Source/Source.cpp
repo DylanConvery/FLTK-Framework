@@ -18,6 +18,7 @@ int main() {
 	Arrow arrow{{50, 50}, {200, 200}};
 	arrow.set_style(Line_style{Line_style::solid, 3});
 	arrow.set_color(Color::black);
+	arrow.set_fill_color(Color::red);
 
 	Function sine{sin, 0, 50, Point{20,150}, 100, 10, 10};
 	sine.set_color(Color::red);

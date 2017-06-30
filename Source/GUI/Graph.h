@@ -7,7 +7,9 @@
 #ifndef GRAPH_GUARD
 #define GRAPH_GUARD 1
 #ifndef __unix__
+#ifndef WIN32
 #define WIN32
+#endif
 #endif
 #include <FL/fl_draw.H>
 #include <FL/Fl_Image.H>
