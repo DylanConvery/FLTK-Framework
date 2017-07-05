@@ -78,7 +78,7 @@ Line::Line(Point p1, Point p2)    // construct a line from two points
 //------------------------------------------------------------------------------
 
 Lines::Lines(initializer_list<pair<Point,Point>>lst){
-	for(const pair<Point,Point> p : lst){
+	for(pair<Point,Point> p : lst){
 		add(p.first,p.second);
 	}
 }
@@ -240,6 +240,29 @@ void Rectangle::draw_lines() const
 
 //------------------------------------------------------------------------------
 
+void Square::draw_lines() const
+{
+	if (fill_color().visibility()) {    // fill
+		fl_color(fill_color().as_int());
+		fl_rectf(point(0).x, point(0).y, _area, _area);
+	}
+
+	if (color().visibility()) {    // lines on top of fill
+		fl_color(color().as_int());
+		fl_rect(point(0).x, point(0).y, _area, _area);
+	}
+}
+
+//------------------------------------------------------------------------------
+
+void Square::set_area(int area)
+{
+	if(area < 0) error("Bad area: non-positive area given");
+	_area = area;
+}
+
+//------------------------------------------------------------------------------
+
 Circle::Circle(Point p, int rr)    // center and radius
 :r(rr)
 {
@@ -354,7 +377,7 @@ void Rounded_Rect::set_height(int h)
 
 //------------------------------------------------------------------------------
 
-Square::Square(Point xy, int area): area(area)
+Rounded_Square::Rounded_Square(Point xy, int area): area(area)
 {
 	add(xy);
 	radius = area / 4;
@@ -362,7 +385,7 @@ Square::Square(Point xy, int area): area(area)
 
 //------------------------------------------------------------------------------
 
-void Square::draw_lines() const 
+void Rounded_Square::draw_lines() const 
 {
 	if (fill_color().visibility())
 	{
@@ -396,7 +419,7 @@ void Square::draw_lines() const
 
 //------------------------------------------------------------------------------
 
-void Square::set_area(int a)
+void Rounded_Square::set_area(int a)
 {
 	area = a;
 	radius = area / 4;

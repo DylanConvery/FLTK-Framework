@@ -45,7 +45,7 @@ struct Color {
         dark_cyan=FL_DARK_CYAN
     };
 
-    enum Transparency { invisible = 0, visible=55 };
+    enum Transparency { invisible = 0, visible=255 };
 
     Color(Color_type cc) :c(Fl_Color(cc)), v(visible) { }
     Color(Color_type cc, Transparency vv) :c(Fl_Color(cc)), v(vv) { }
@@ -218,6 +218,23 @@ private:
 
 //------------------------------------------------------------------------------
 
+struct Square : Shape {
+	Square(Point xy, int area) : _area(area) 
+	{
+		add(xy);
+		if (area < 0) error("Bad area: non-positive area given");
+	}
+
+	void draw_lines() const;
+
+	int get_area() const { return _area; }
+	void set_area(int area);
+private:
+	int _area;
+};
+
+//------------------------------------------------------------------------------
+
 struct Open_polyline : Shape {         // open sequence of lines
     void add(Point p) { Shape::add(p); }
     void draw_lines() const;
@@ -368,8 +385,8 @@ private:
 //------------------------------------------------------------------------------
 
 
-struct Square : Shape {
-	Square(Point xy, int area);
+struct Rounded_Square : Shape {
+	Rounded_Square(Point xy, int area);
 
 	void draw_lines() const;
 
