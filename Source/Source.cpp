@@ -1,7 +1,6 @@
 #include <iostream>
 #include "GUI/Graph.h"
 #include "GUI/Window.h"
-#include <time.h>
 
 int main() {
 	try {
@@ -24,12 +23,11 @@ int main() {
 	
 	catch (std::runtime_error &e) {
 		std::cerr << "RUNTIME_ERROR: " << e.what() << '\n';
-		
 		char ch(0);
-		while (ch != '\n') {
-				std::cout << "Press Enter to continue...\n";
-				std::cin.clear();
-				std::cin.get(ch);
+		while (ch != '\n') {	
+			std::cin.clear();
+			std::cout << "Press Enter to continue...\n";
+			std::cin.get(ch);
 		}
 		return 1;
 	}
