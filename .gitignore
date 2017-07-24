@@ -4,6 +4,8 @@
 #User files
 builds/
 Builds/
+Build/
+build/
 
 # User-specific files
 *.suo
